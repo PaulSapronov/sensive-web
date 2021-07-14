@@ -34,18 +34,27 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="tours.html">Tours</a></li>
-              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-              <!-- <li class="nav-item submenu dropdown">
+              <?php 
+                    wp_nav_menu( [
+                        'theme_location'  => '',
+                        'container'       => false, 
+                        'menu_class'      => 'navbar-nav', 
+                        'menu_id'         => false,
+                        'echo'            => true,
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'walker'          => new bootstrap_4_walker_nav_menu,
+                    ] );
+                ?>
+            </ul>
+
+            <!-- <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>
                 </ul>
               </li> -->
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
+
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
               <li><a href="#"><i class="fab fa-twitter"></i></a></li>

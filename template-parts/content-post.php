@@ -1,8 +1,5 @@
 <div class="main_blog_details">
-  <img class="img-fluid" src="img/blog/blog4.png" alt="">
-  <a href="#">
-    <h4><?php the_title(); ?></h4>
-  </a>
+
   <div class="user_details">
     <div class="float-left">
       <a href="#">Lifestyle</a>

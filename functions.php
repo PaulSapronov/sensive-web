@@ -11,7 +11,7 @@ if (! function_exists('sensive_setup')) {
 			'flex-width'  => false,
 			'flex-height' => false,
 			'header-text' => '',
-			'unlink-homepage-logo' => false, // WP 5.5
+			'unlink-homepage-logo' => true, // WP 5.5
 		]);
 
 		// Adding support for HTML5 tags
@@ -145,4 +145,38 @@ register_sidebar( array(
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
 ) );
+}
+
+// Registering a new post type "Tours"
+add_action('init', 'my_custom_init');
+function my_custom_init(){
+	register_post_type('tours', array(
+		'labels'             => array(
+			'name'               => __('Tours', 'sensive'), // Основное название типа записи
+			'singular_name'      => __('Tour', 'sensive'), // отдельное название записи типа Book
+			'add_new'            => __('Add new', 'sensive'),
+			'add_new_item'       => __('Add new tour', 'sensive'),
+			'edit_item'          => __('Edit tour', 'sensive'),
+			'new_item'           => __('New tour', 'sensive'),
+			'view_item'          => __('View tour', 'sensive'),
+			'search_items'       => __('Search tour', 'sensive'),
+			'not_found'          => __('Tours not found', 'sensive'),
+			'not_found_in_trash' => __('Not found tours in trash', 'sensive'),
+			'parent_item_colon'  => '',
+			'menu_name'          => __('Tours', 'sensive')
+
+			),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'menu_icon'			 		 => 'dashicons-airplane',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 5,
+		'supports'           => array('title','editor','author','thumbnail','excerpt',)
+	) );
 }

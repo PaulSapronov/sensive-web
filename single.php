@@ -1,15 +1,22 @@
 <?php get_header(); ?>
+
 <!--================ Hero sm Banner start =================-->
 <section class="mb-30px">
   <div class="container">
-    <div class="hero-banner hero-banner--sm">
+    <div class="hero-banner hero-banner--sm" style="background: url(<?php
+    if (has_post_thumbnail()) {
+        the_post_thumbnail_url();
+    } else {
+        echo get_template_directory_uri() . '/img/banner/blog.png';
+    }
+?>) no-repeat center / cover">
       <div class="hero-banner__content">
-        <h1>Blog details</h1>
+        <h1><?php the_title(); ?></h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item"><a href="blog.html">Блог</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Записи</li>
           </ol>
         </nav>
       </div>
@@ -26,26 +33,27 @@
       <main class="col-lg-8">
 
         <?php
-		while ( have_posts() ) :
-			the_post();
+          while ( have_posts() ) :
+            the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+            get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+            the_post_navigation(
+              array(
+                'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
+                'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
+              )
+            );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) :
+              comments_template();
+            endif;
 
-		endwhile; // End of the loop.
-		?>
+          endwhile; // End of the loop.
+        ?>
 
+        <!-- Start Post Navigation -->
         <div class="navigation-area">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
@@ -78,106 +86,9 @@
             </div>
           </div>
         </div>
+        <!-- End Post Navigation -->
 
 
-        <div class="comments-area">
-          <h4>05 Comments</h4>
-          <div class="comment-list">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                  <img src="img/blog/c1.jpg" alt="">
-                </div>
-                <div class="desc">
-                  <h5><a href="#">Emilly Blunt</a></h5>
-                  <p class="date">December 4, 2017 at 3:12 pm </p>
-                  <p class="comment">
-                    Never say goodbye till the end comes!
-                  </p>
-                </div>
-              </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
-            </div>
-          </div>
-          <div class="comment-list left-padding">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                  <img src="img/blog/c2.jpg" alt="">
-                </div>
-                <div class="desc">
-                  <h5><a href="#">Elsie Cunningham</a></h5>
-                  <p class="date">December 4, 2017 at 3:12 pm </p>
-                  <p class="comment">
-                    Never say goodbye till the end comes!
-                  </p>
-                </div>
-              </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
-            </div>
-          </div>
-          <div class="comment-list left-padding">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                  <img src="img/blog/c3.jpg" alt="">
-                </div>
-                <div class="desc">
-                  <h5><a href="#">Annie Stephens</a></h5>
-                  <p class="date">December 4, 2017 at 3:12 pm </p>
-                  <p class="comment">
-                    Never say goodbye till the end comes!
-                  </p>
-                </div>
-              </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
-            </div>
-          </div>
-          <div class="comment-list">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                  <img src="img/blog/c4.jpg" alt="">
-                </div>
-                <div class="desc">
-                  <h5><a href="#">Maria Luna</a></h5>
-                  <p class="date">December 4, 2017 at 3:12 pm </p>
-                  <p class="comment">
-                    Never say goodbye till the end comes!
-                  </p>
-                </div>
-              </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
-            </div>
-          </div>
-          <div class="comment-list">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                  <img src="img/blog/c5.jpg" alt="">
-                </div>
-                <div class="desc">
-                  <h5><a href="#">Ina Hayes</a></h5>
-                  <p class="date">December 4, 2017 at 3:12 pm </p>
-                  <p class="comment">
-                    Never say goodbye till the end comes!
-                  </p>
-                </div>
-              </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="comment-form">
           <h4>Leave a Reply</h4>
           <form>

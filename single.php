@@ -3,15 +3,9 @@
 <!--================ Hero sm Banner start =================-->
 <section class="mb-30px">
   <div class="container">
-    <div class="hero-banner hero-banner--sm" style="background: url(<?php
-    if (has_post_thumbnail()) {
-        the_post_thumbnail_url();
-    } else {
-        echo get_template_directory_uri() . '/img/banner/blog.png';
-    }
-?>) no-repeat center / cover">
+    <div class="hero-banner hero-banner--sm">
       <div class="hero-banner__content">
-        <h1><?php the_title(); ?></h1>
+        <h1>Записи</h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Главная</a></li>
@@ -36,12 +30,42 @@
           while ( have_posts() ) :
             the_post();
 
-            get_template_part( 'template-parts/content', get_post_type() );
+              get_template_part( 'template-parts/content', get_post_type() );
 
             the_post_navigation(
               array(
-                'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
-                'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'sensive' ) . '</span> <span class="nav-title">%title</span>',
+                'prev_text' => '        <div class="navigation-area">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                    <div class="thumb">
+                      <a href="#"><img class="img-fluid" src="img/blog/prev.jpg" alt=""></a>
+                    </div>
+                    <div class="arrow">
+                      <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+                    </div>
+                    <div class="detials">
+                      <p>Prev Post</p>
+                      <a href="#">
+                        <h4>A Discount Toner</h4>
+                      </a>
+                    </div>
+                  </div>',
+                'next_text' => '<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                <div class="detials">
+                  <p>Next Post</p>
+                  <a href="#">
+                    <h4>Cartridge Is Better</h4>
+                  </a>
+                </div>
+                <div class="arrow">
+                  <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+                </div>
+                <div class="thumb">
+                  <a href="#"><img class="img-fluid" src="img/blog/next.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>',
               )
             );
 
@@ -91,7 +115,11 @@
       </main>
 
       <!-- Start Blog Post Siddebar -->
-      <?php get_sidebar(); ?>
+      <aside class="col-lg-4 sidebar-widgets">
+        <div class="widget-wrap">
+          <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
+        </div>
+      </aside>
       <!-- End Blog Post Siddebar -->
     </div>
 </section>

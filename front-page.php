@@ -6,8 +6,8 @@
     <div class="container">
       <div class="hero-banner">
         <div class="hero-banner__content">
-          <h3>Tours & Travels</h3>
-          <h1>Amazing Places on earth</h1>
+          <h3><?php echo the_field( 'subtitle', $post->ID )?></h3>
+          <h1><?php the_title(); ?></h1>
           <h4></h4>
         </div>
       </div>
@@ -167,12 +167,11 @@
             </div>
           </div>
         </div>
+
         <!-- Start Blog Post Siddebar -->
         <aside class="col-lg-4 sidebar-widgets">
           <div class="widget-wrap">
-
             <?php if ( ! dynamic_sidebar('sidebar-main') ) : dynamic_sidebar('sidebar-main'); endif; ?>
-
           </div>
         </aside>
         <!-- End Blog Post Siddebar -->

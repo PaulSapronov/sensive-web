@@ -1,17 +1,15 @@
-<?php		
-global $post;
-
-$query = new WP_Query( [
-	'posts_per_page' => 5,
-	'post_type'      => 'tours',
-] );
-
-if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		?>
 <div class="main_blog_details">
-
+  <?php 
+    if( has_post_thumbnail() ) { // Checking for a miniature
+        the_post_thumbnail( 'post-thumbnail', array('class' => "img-fluid w-100",)); // Thumbnail output
+    }
+    else { // If no miniature
+    echo '<img class="img-fluid w-100 h-100" src="'.get_template_directory_uri().'/img/banner/blog.png">';
+    }
+  ?>
+  <a href="#">
+    <h4><?php the_title(); ?></h4>
+  </a>
   <div class="user_details">
     <div class="float-left">
       <a href="#">Lifestyle</a>
@@ -38,20 +36,20 @@ if ( $query->have_posts() ) {
       <span class="align-middle mr-2">
         <i class="ti-themify-favicon"></i>
       </span><?php
-    $sensive_comment_count = comments_number(); // возвратит число
-    if ( comments_open() ) {
-      if ( $sensive_comment_count == 0 ) {
-        $comments = __('No Comments');
-      } elseif ( $sensive_comment_count > 1 ) {
-        $comments = $sensive_comment_count . __(' Comments');
+      $sensive_comment_count = comments_number(); // возвратит число
+      if ( comments_open() ) {
+        if ( $sensive_comment_count == 0 ) {
+          $comments = __('No Comments');
+        } elseif ( $sensive_comment_count > 1 ) {
+          $comments = $sensive_comment_count . __(' Comments');
+        } else {
+          $comments = __('1 Comment');
+        }
+        $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
       } else {
-        $comments = __('1 Comment');
+        $write_comments =  __('Comments are off for this post.');
       }
-      $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
-    } else {
-      $write_comments =  __('Comments are off for this post.');
-    }
-  ?>
+		?>
     </a>
     <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -61,11 +59,3 @@ if ( $query->have_posts() ) {
     </div>
   </div>
 </div>
-<?php 
-	}
-} else {
-	// Постов не найдено
-}
-
-wp_reset_postdata(); // Сбрасываем $post
-?>

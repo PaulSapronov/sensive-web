@@ -29,8 +29,13 @@
         <?php
           while ( have_posts() ) :
             the_post();
-
+            
+            if( is_home( ) ){
               get_template_part( 'template-parts/content', get_post_type() );
+            }
+            if( is_page('tours') ){
+              echo get_template_part( 'template-parts/content', 'tours');
+            }
 
             the_post_navigation(
               array(

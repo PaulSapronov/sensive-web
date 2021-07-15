@@ -668,7 +668,7 @@ function my_custom_init(){
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => 5,
-		'supports'           => array('title','editor','author','thumbnail','excerpt',)
+		'supports'           => array('title','editor','author','thumbnail','excerpt','comments')
 	) );
 }
 

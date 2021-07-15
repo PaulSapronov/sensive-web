@@ -63,6 +63,32 @@
           <div class="col-lg-12">
             <nav class="blog-pagination justify-content-center d-flex">
               <ul class="pagination">
+                <? the_posts_pagination( array(
+                'end_size'           => 0,
+                'mid_size'           => 0,
+                'prev_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button></li>',
+                'next_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button></li>',
+                
+              )); ?>
+
+                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button> -->
+                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button> -->
+
+                <!-- <li class="page-item active"><a href="#" class="page-link">1</a></li> -->
+                <!-- <li class="page-item"><a href="#" class="page-link">2</a></li> -->
+
+
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- Exemple -->
+
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="blog-pagination justify-content-center d-flex">
+              <ul class="pagination">
                 <li class="page-item">
                   <a href="#" class="page-link" aria-label="Previous">
                     <span aria-hidden="true">
@@ -79,6 +105,8 @@
                     </span>
                   </a>
                 </li>
+
+
               </ul>
             </nav>
           </div>
@@ -87,10 +115,16 @@
       <!-- End Posts Pagination -->
 
       <!-- Start Blog Post Siddebar -->
+      <aside class="col-lg-4 sidebar-widgets">
+        <div class="widget-wrap">
 
-      <?php get_sidebar(); ?>
 
+          <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
+
+        </div>
+      </aside>
       <!-- End Blog Post Siddebar -->
+
     </div>
   </div>
 </section>

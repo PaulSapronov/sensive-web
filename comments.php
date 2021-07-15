@@ -12,24 +12,21 @@ if ( post_password_required() ) {
 	if ( have_comments() ) :
 		?>
   <h4 class="comments-title">
-
     <?php
-			$sensive_comment_count = get_comments_number();
-			if ( '1' === $sensive_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'Один комментарий &ldquo;%1$s&rdquo;', 'sensive' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			} else {
-				printf( 
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s комментарий &ldquo;%2$s&rdquo;', '%1$s Комментариев', $sensive_comment_count, 'comments title', 'sensive' ) ),
-					number_format_i18n( $sensive_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			}
-			?>
+      $sensive_comment_count = comments_number(); // возвратит число
+      if ( comments_open() ) {
+        if ( $sensive_comment_count == 0 ) {
+          $comments = __('No Comments');
+        } elseif ( $sensive_comment_count > 1 ) {
+          $comments = $sensive_comment_count . __(' Comments');
+        } else {
+          $comments = __('1 Comment');
+        }
+        $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+      } else {
+        $write_comments =  __('Comments are off for this post.');
+      }
+		?>
   </h4><!-- .comments-title -->
 
   <?php the_comments_navigation(); ?>
@@ -49,7 +46,7 @@ if ( post_password_required() ) {
           'echo'              => true,     // true или false
 				)
 			);
-			?>
+		?>
   </div><!-- .comment-list -->
 
   <?php
@@ -64,104 +61,51 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+  $defaults = [
+    'fields'               => [
+      'author'             => '<div class="form-group form-inline"><div class="form-group col-lg-6 col-md-6 name">
+        <input type="text" class="form-control" id="author" name="author"  value="" placeholder="Ваше Имя"' . esc_attr( $commenter['comment_author'] ) . '" size="30" />
+      </div>',
+      'email'              => '<div class="form-group col-lg-6 col-md-6 email">
+        <input type="email" class="form-control" id="email" name="email" value="" placeholder="Ваш Email адрес"' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"/>
+      </div></div>',
+      'subject'              => '<div class="form-group ">
+        <input type="email" class="form-control" id="subject" name="subject" value="" placeholder="Тема сообщения"' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"/>
+      </div>',
+      'cookies' => '<p  "class="comment-form-cookies-consent">'.
+			'<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="hidden"/>', '
+		</p>',
+    ],
+    'comment_field'        => '<div class="form-group">
+      <textarea id="comment" class="form-control mb-10" name="comment" rows="5" placeholder="Сообщение" aria-required="true" required="required"></textarea>
+    </div>',
+    'must_log_in'          => '<p class="must-log-in">' .
+      sprintf( __( 'Вы должны <a href="%s">войти</a> чтобы оставить комментарий.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post->ID ) ) ) ) . '
+    </p>',
+    'logged_in_as'         => '<p class="logged-in-as">' .
+      sprintf( __( '<a href="%1$s" aria-label="Вы вошли как %2$s.">Вы вошли как %2$s</a>. <a href="%3$s">Выйти?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post->ID ) ) ) ) . '
+    </p>',
+    'comment_notes_before' => '<p class="comment-notes">
+      <span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span>'.'
+    </p>',
+    'comment_notes_after'  => '',
+    'id_form'              => 'commentform',
+    'id_submit'            => 'submit',
+    'class_form'           => 'comment-form',
+    'class_submit'         => 'button submit_btn',
+    'name_submit'          => 'submit',
+    'title_reply'          => __( 'Оставьте комментарий' ),
+    'title_reply_to'       => __( 'Оставить комментарий %s' ),
+    'title_reply_before'   => '<h4 id="reply-title" class="comment-reply-title">',
+    'title_reply_after'    => '</h4>',
+    'cancel_reply_link'    => __( 'Отменить отправку' ),
+    'label_submit'         => __( 'Отправить комментарий' ),
+    'submit_button'        => '<button name="%1$s" type="submit" id="%2$s" class="%3$s">%4$s</button>',
+    'submit_field'         => '<p class="form-submit">%1$s %2$s</p>',
+    'format'               => 'html5',
+    'class_container'      => 'comment-form',
+  ];
+  
+  comment_form( $defaults );
 	?>
-
 </div><!-- #comments -->
-
-<div class="comments-area">
-
-  <div class="comment-list">
-    <div class="single-comment justify-content-between d-flex">
-      <div class="user justify-content-between d-flex">
-        <div class="thumb">
-          <img src="img/blog/c1.jpg" alt="">
-        </div>
-        <div class="desc">
-          <h5><a href="#">Emilly Blunt</a></h5>
-          <p class="date">December 4, 2017 at 3:12 pm </p>
-          <p class="comment">
-            Never say goodbye till the end comes!
-          </p>
-        </div>
-      </div>
-      <div class="reply-btn"><a href="" class="btn-reply text-uppercase">reply</a></div>
-    </div>
-  </div>
-  <div class="comment-list left-padding">
-    <div class="single-comment justify-content-between d-flex">
-      <div class="user justify-content-between d-flex">
-        <div class="thumb">
-          <img src="img/blog/c2.jpg" alt="">
-        </div>
-        <div class="desc">
-          <h5><a href="#">Elsie Cunningham</a></h5>
-          <p class="date">December 4, 2017 at 3:12 pm </p>
-          <p class="comment">
-            Never say goodbye till the end comes!
-          </p>
-        </div>
-      </div>
-      <div class="reply-btn">
-        <a href="" class="btn-reply text-uppercase">reply</a>
-      </div>
-    </div>
-  </div>
-  <div class="comment-list left-padding">
-    <div class="single-comment justify-content-between d-flex">
-      <div class="user justify-content-between d-flex">
-        <div class="thumb">
-          <img src="img/blog/c3.jpg" alt="">
-        </div>
-        <div class="desc">
-          <h5><a href="#">Annie Stephens</a></h5>
-          <p class="date">December 4, 2017 at 3:12 pm </p>
-          <p class="comment">
-            Never say goodbye till the end comes!
-          </p>
-        </div>
-      </div>
-      <div class="reply-btn">
-        <a href="" class="btn-reply text-uppercase">reply</a>
-      </div>
-    </div>
-  </div>
-  <div class="comment-list">
-    <div class="single-comment justify-content-between d-flex">
-      <div class="user justify-content-between d-flex">
-        <div class="thumb">
-          <img src="img/blog/c4.jpg" alt="">
-        </div>
-        <div class="desc">
-          <h5><a href="#">Maria Luna</a></h5>
-          <p class="date">December 4, 2017 at 3:12 pm </p>
-          <p class="comment">
-            Never say goodbye till the end comes!
-          </p>
-        </div>
-      </div>
-      <div class="reply-btn">
-        <a href="" class="btn-reply text-uppercase">reply</a>
-      </div>
-    </div>
-  </div>
-  <div class="comment-list">
-    <div class="single-comment justify-content-between d-flex">
-      <div class="user justify-content-between d-flex">
-        <div class="thumb">
-          <img src="img/blog/c5.jpg" alt="">
-        </div>
-        <div class="desc">
-          <h5><a href="#">Ina Hayes</a></h5>
-          <p class="date">December 4, 2017 at 3:12 pm </p>
-          <p class="comment">
-            Never say goodbye till the end comes!
-          </p>
-        </div>
-      </div>
-      <div class="reply-btn">
-        <a href="" class="btn-reply text-uppercase">reply</a>
-      </div>
-    </div>
-  </div>
-</div>

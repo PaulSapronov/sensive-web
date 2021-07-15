@@ -167,8 +167,15 @@
             </div>
           </div>
         </div>
+        <!-- Start Blog Post Siddebar -->
+        <aside class="col-lg-4 sidebar-widgets">
+          <div class="widget-wrap">
 
-        <?php get_sidebar()?>
+            <?php if ( ! dynamic_sidebar('sidebar-main') ) : dynamic_sidebar('sidebar-main'); endif; ?>
+
+          </div>
+        </aside>
+        <!-- End Blog Post Siddebar -->
 
       </div>
     </div>

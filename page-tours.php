@@ -5,11 +5,11 @@
   <div class="container">
     <div class="hero-banner hero-banner--sm">
       <div class="hero-banner__content">
-        <h1>Tours Page</h1>
+        <h1>Туры</h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tours Page</li>
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Туры</li>
           </ol>
         </nav>
       </div>
@@ -105,149 +105,17 @@
           </div>
         </div>
       </div>
-
       <!-- Start Blog Post Siddebar -->
-      <div class="col-lg-4 sidebar-widgets">
+      <aside class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
-          <div class="single-sidebar-widget newsletter-widget">
-            <form action="#">
-              <div class="d-flex flex-row">
-                <input class="form-control" name="q" placeholder="Search" required="" type="text" value="">
-                <button class="click-btn btn btn-default bbtns"><i class="ti-search"></i></button>
-              </div>
-            </form>
-          </div>
 
-          <!-- <div class="single-sidebar-widget newsletter-widget">
-                <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                <div class="form-group mt-30">
-                  <div class="col-autos">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                      onblur="this.placeholder = 'Enter email'">
-                  </div>
-                </div>
-                <button class="bbtns d-block mt-20 w-100">Subcribe</button>
-              </div> -->
+          <?php if ( ! dynamic_sidebar('sidebar-tours') ) : dynamic_sidebar('sidebar-tours'); endif; ?>
 
-          <div class="single-sidebar-widget post-category-widget">
-            <h4 class="single-sidebar-widget__title">Category</h4>
-            <ul class="cat-list mt-20">
-              <li>
-                <a href="archive.html" class="d-flex justify-content-between">
-                  <p>Technology</p>
-                  <p>(03)</p>
-                </a>
-              </li>
-              <li>
-                <a href="archive.html" class="d-flex justify-content-between">
-                  <p>Software</p>
-                  <p>(09)</p>
-                </a>
-              </li>
-              <li>
-                <a href="archive.html" class="d-flex justify-content-between">
-                  <p>Lifestyle</p>
-                  <p>(12)</p>
-                </a>
-              </li>
-              <li>
-                <a href="archive.html" class="d-flex justify-content-between">
-                  <p>Shopping</p>
-                  <p>(02)</p>
-                </a>
-              </li>
-              <li>
-                <a href="archive.html" class="d-flex justify-content-between">
-                  <p>Food</p>
-                  <p>(10)</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="single-sidebar-widget popular-post-widget">
-            <h4 class="single-sidebar-widget__title">Popular Post</h4>
-            <div class="popular-post-list">
-              <div class="single-post-list">
-                <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                  <a href="blog-single.html">
-                    <h6>Accused of assaulting flight attendant miktake alaways</h6>
-                  </a>
-                </div>
-              </div>
-              <div class="single-post-list">
-                <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb2.png" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                  <a href="blog-single.html">
-                    <h6>Tennessee outback steakhouse the
-                      worker diagnosed</h6>
-                  </a>
-                </div>
-              </div>
-              <div class="single-post-list">
-                <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb3.png" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#">Adam Colinge</a></li>
-                    <li><a href="#">Dec 15</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                  <a href="blog-single.html">
-                    <h6>Tennessee outback steakhouse the
-                      worker diagnosed</h6>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="single-sidebar-widget tag_cloud_widget">
-            <h4 class="single-sidebar-widget__title">Tags</h4>
-            <ul class="list">
-              <li>
-                <a href="#">project</a>
-              </li>
-              <li>
-                <a href="#">love</a>
-              </li>
-              <li>
-                <a href="#">technology</a>
-              </li>
-              <li>
-                <a href="#">travel</a>
-              </li>
-              <li>
-                <a href="#">software</a>
-              </li>
-              <li>
-                <a href="#">life style</a>
-              </li>
-              <li>
-                <a href="#">design</a>
-              </li>
-              <li>
-                <a href="#">illustration</a>
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
+      </aside>
+
+      <!-- End Blog Post Siddebar -->
     </div>
-    <!-- End Blog Post Siddebar -->
   </div>
 </section>
 <!--================ End Blog Post Area =================-->

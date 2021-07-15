@@ -3,6 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3  col-md-6 col-sm-6">
+        <?php if ( ! dynamic_sidebar('sidebar-footer') ) : dynamic_sidebar('sidebar-footer'); endif; ?>
         <div class="single-footer-widget">
           <h6>About Us</h6>
           <p>

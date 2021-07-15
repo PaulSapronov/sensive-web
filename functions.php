@@ -605,32 +605,56 @@ function delete_intermediate_image_sizes( $sizes ){
 add_action( 'widgets_init', 'sensive_widgets_init' );
 function sensive_widgets_init() {
 register_sidebar( array(
-	'name'          => esc_html__( 'Sidebar', 'sensive' ),
-	'id'            => 'sidebar',
-	'before_widget' => '<section id="%1$s" class="single-sidebar-widget %2$s">',
+	'name'          => esc_html__( 'Сайдбар страницы "Главная"', 'sensive' ),
+	'id'            => 'sidebar-main',
+	'before_widget' => '<section id="%1$s" class="main-widget main-sidebar-widget %2$s">',
 	'after_widget'  => '</section>',
-	'before_title'  => '<h4 class="single-sidebar-widget__title">',
+	'before_title'  => '<h4 class="single-sidebar-widget">',
+	'after_title'   => '</h4>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар страницы "Туры"', 'sensive' ),
+	'id'            => 'sidebar-tours',
+	'before_widget' => '<section class="tours-widget tours-sidebar-widget__title %2$s">',
+	'after_widget'  => '</section>',
+	'before_title'  => '<h4 class="single-sidebar-widget">',
+	'after_title'   => '</h4>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар страницы "Блог"', 'sensive' ),
+	'id'            => 'sidebar-blog',
+	'before_widget' => '<section class="blog-widget blog-sidebar-widget__title %2$s">',
+	'after_widget'  => '</section>',
+	'before_title'  => '<h4 class="single-sidebar-widget">',
+	'after_title'   => '</h4>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар "footer"', 'sensive' ),
+	'id'            => 'sidebar-footer',
+	'before_widget' => '<section class="footer-widget footer-sidebar-widget__title %2$s">',
+	'after_widget'  => '</section>',
+	'before_title'  => '<h4 class="single-sidebar-widget">',
 	'after_title'   => '</h4>'
 ) );
 }
 
-// Registering a new post type "Tours"
+// Registering a new post type "Туры"
 add_action('init', 'my_custom_init');
 function my_custom_init(){
 	register_post_type('tours', array(
 		'labels'             => array(
-			'name'               => __('Tours', 'sensive'), // Основное название типа записи
-			'singular_name'      => __('Tour', 'sensive'), // отдельное название записи типа Book
-			'add_new'            => __('Add new', 'sensive'),
-			'add_new_item'       => __('Add new tour', 'sensive'),
-			'edit_item'          => __('Edit tour', 'sensive'),
-			'new_item'           => __('New tour', 'sensive'),
-			'view_item'          => __('View tour', 'sensive'),
-			'search_items'       => __('Search tour', 'sensive'),
-			'not_found'          => __('Tours not found', 'sensive'),
-			'not_found_in_trash' => __('Not found tours in trash', 'sensive'),
+			'name'               => __('Туры', 'sensive'), // Основное название типа записи
+			'singular_name'      => __('Тур', 'sensive'), // отдельное название записи типа Book
+			'add_new'            => __('Добавить новый', 'sensive'),
+			'add_new_item'       => __('Добавить новый тур', 'sensive'),
+			'edit_item'          => __('Редактировать', 'sensive'),
+			'new_item'           => __('Новый тур', 'sensive'),
+			'view_item'          => __('Посмотреть тур', 'sensive'),
+			'search_items'       => __('Найти тур', 'sensive'),
+			'not_found'          => __('Туры не найдены', 'sensive'),
+			'not_found_in_trash' => __('В корзине туров не найдено', 'sensive'),
 			'parent_item_colon'  => '',
-			'menu_name'          => __('Tours', 'sensive')
+			'menu_name'          => __('Туры', 'sensive')
 
 			),
 		'public'             => true,
@@ -647,3 +671,19 @@ function my_custom_init(){
 		'supports'           => array('title','editor','author','thumbnail','excerpt',)
 	) );
 }
+
+// удаляет H2 из шаблона пагинации
+add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+function my_navigation_template( $template, $class ){
+
+	return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}
+
+// выводим пагинацию
+the_posts_pagination( array(
+	'end_size' => 2,
+) ); 

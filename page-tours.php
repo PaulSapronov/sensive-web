@@ -28,7 +28,7 @@
           global $post;
 
           $query = new WP_Query( [
-            'posts_per_page' => 3,
+            'posts_per_page' => 5,
             'post_type'      => 'tours',
           ] );
 

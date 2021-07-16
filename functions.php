@@ -607,32 +607,32 @@ function sensive_widgets_init() {
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар страницы "Главная"', 'sensive' ),
 	'id'            => 'sidebar-main',
-	'before_widget' => '<section id="%1$s" class="single-sidebar-widget %2$s">',
-	'after_widget'  => '</section>',
+	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s">',
+	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
 ) );
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар страницы "Туры"', 'sensive' ),
 	'id'            => 'sidebar-tours',
-	'before_widget' => '<section id="%1$s" class="single-sidebar-widget %2$s"">',
-	'after_widget'  => '</section>',
+	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s"">',
+	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
 ) );
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар страницы "Блог"', 'sensive' ),
 	'id'            => 'sidebar-blog',
-	'before_widget' => '<section id="%1$s" class="single-sidebar-widget %2$s"">',
-	'after_widget'  => '</section>',
+	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s"">',
+	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
 ) );
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар "footer"', 'sensive' ),
 	'id'            => 'sidebar-footer',
-	'before_widget' => '<section id="%1$s" class="single-footer-widget %2$s">',
-	'after_widget'  => '</section>',
+	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
+	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
 ) );

@@ -30,13 +30,9 @@
           while ( have_posts() ) :
             the_post();
             
-            if( is_home( ) ){
+            
               get_template_part( 'template-parts/content', get_post_type() );
-            }
-            if( is_page('tours') ){
-              get_template_part( 'template-parts/content', 'tours');
-            }
-
+            
             the_post_navigation(
               array(
                 'prev_text' => '        <div class="navigation-area">
@@ -82,8 +78,23 @@
           endwhile; // End of the loop.
         ?>
 
-        <!-- Start Post Navigation -->
-        <div class="navigation-area">
+      </main>
+
+      <!-- Start Blog Post Siddebar -->
+      <aside class="col-lg-4 sidebar-widgets">
+        <div class="widget-wrap">
+          <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
+        </div>
+      </aside>
+      <!-- End Blog Post Siddebar -->
+    </div>
+</section>
+<!--================ End Blog Post Area =================-->
+
+<?php get_footer(); ?>
+
+<!-- Start Post Navigation -->
+<!-- <div class="navigation-area">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
               <div class="thumb">
@@ -114,20 +125,5 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- End Post Navigation -->
-
-      </main>
-
-      <!-- Start Blog Post Siddebar -->
-      <aside class="col-lg-4 sidebar-widgets">
-        <div class="widget-wrap">
-          <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
-        </div>
-      </aside>
-      <!-- End Blog Post Siddebar -->
-    </div>
-</section>
-<!--================ End Blog Post Area =================-->
-
-<?php get_footer(); ?>
+        </div> -->
+<!-- End Post Navigation -->

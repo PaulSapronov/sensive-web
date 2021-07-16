@@ -633,8 +633,16 @@ register_sidebar( array(
 	'id'            => 'sidebar-footer',
 	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h4 class="single-sidebar-widget__title">',
-	'after_title'   => '</h4>'
+	'before_title'  => '<h6 class="footr-area">',
+	'after_title'   => '</h6>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар "галлерея"', 'sensive' ),
+	'id'            => 'sidebar-footer-galery',
+	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h6 class="footr-area">',
+	'after_title'   => '</h6>'
 ) );
 }
 
@@ -668,7 +676,7 @@ function my_custom_init(){
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => 5,
-		'supports'           => array('title','editor','author','thumbnail','excerpt','comments')
+		'supports'           => array('title','editor','thumbnail','excerpt')
 	) );
 }
 

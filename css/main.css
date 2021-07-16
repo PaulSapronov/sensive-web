@@ -1751,7 +1751,7 @@ a {
   color: #999999;
   opacity: 1;
 }
-.comment-form textarea.form-control {
+.comment-form textarea .form-control {
   height: 140px;
   resize: none;
 }
@@ -2182,4 +2182,7 @@ a {
 .footer-text a,
 .footer-text i {
   color: #ff9907;
+}
+.wpcf7 .wpcf7-textarea {
+  resize: none;
 }

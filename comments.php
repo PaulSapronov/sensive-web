@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 
   <?php the_comments_navigation(); ?>
 
-  <div class="comment-list">
+  <ol class="comment-list">
     <?php
 			wp_list_comments(
 				array(
@@ -47,16 +47,16 @@ if ( post_password_required() ) {
 				)
 			);
 		?>
-  </div><!-- .comment-list -->
+    </щ><!-- .comment-list -->
 
-  <?php
+    <?php
 		the_comments_navigation();
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-  <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'sensive' ); ?></p>
-  <?php
+    <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'sensive' ); ?></p>
+    <?php
 		endif;
 
 	endif; // Check for have_comments().
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
       'email'              => '<div class="form-group col-lg-6 col-md-6 email">
         <input type="email" class="form-control" id="email" name="email" value="" placeholder="Ваш Email адрес"' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"/>
       </div></div>',
-      'subject'              => '<div class="form-group ">
+      'subject'              => '<div class="form-group">
         <input type="email" class="form-control" id="subject" name="subject" value="" placeholder="Тема сообщения"' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-describedby="email-notes"/>
       </div>',
       'cookies' => '<p  "class="comment-form-cookies-consent">'.
@@ -86,12 +86,12 @@ if ( post_password_required() ) {
       sprintf( __( '<a href="%1$s" aria-label="Вы вошли как %2$s.">Вы вошли как %2$s</a>. <a href="%3$s">Выйти?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post->ID ) ) ) ) . '
     </p>',
     'comment_notes_before' => '<p class="comment-notes">
-      <span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span>'.'
+      <span id="email-notes">' . __( 'Ваш адрес защищен.' ) . '</span>'.'
     </p>',
     'comment_notes_after'  => '',
     'id_form'              => 'commentform',
     'id_submit'            => 'submit',
-    'class_form'           => 'comment-form',
+    'class_form'           => '',
     'class_submit'         => 'button submit_btn',
     'name_submit'          => 'submit',
     'title_reply'          => __( 'Оставьте комментарий' ),

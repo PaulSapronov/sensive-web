@@ -6,7 +6,7 @@
         global $post;
         
         $query = new WP_Query( [
-          'posts_per_page' => 6,
+          'posts_per_page' => 5,
           'post_type'      => 'tours',
         ] );
         
@@ -19,8 +19,8 @@
           <img class="card-img rounded-0" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
         </div>
         <div class="blog__slide__content">
-          <h3><a href="#"><?php the_title(); ?></a></h3>
-          <p>2 days ago</p>
+          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+          <p><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' назад'; ?></p>
         </div>
       </div>
       <?php 

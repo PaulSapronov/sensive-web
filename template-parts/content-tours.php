@@ -32,25 +32,7 @@
 
   <div class="news_d_footer flex-column flex-sm-row">
     <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>Lily and 4 people like this</a>
-    <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#">
-      <span class="align-middle mr-2">
-        <i class="ti-themify-favicon"></i>
-      </span><?php
-      $sensive_comment_count = comments_number(); // возвратит число
-      if ( comments_open() ) {
-        if ( $sensive_comment_count == 0 ) {
-          $comments = __('No Comments');
-        } elseif ( $sensive_comment_count > 1 ) {
-          $comments = $sensive_comment_count . __(' Comments');
-        } else {
-          $comments = __('1 Comment');
-        }
-        $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
-      } else {
-        $write_comments =  __('Comments are off for this post.');
-      }
-		?>
-    </a>
+
     <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>

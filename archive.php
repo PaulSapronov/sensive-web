@@ -5,11 +5,37 @@
   <div class="container">
     <div class="hero-banner hero-banner--sm">
       <div class="hero-banner__content">
-        <h1>Archive Page</h1>
+        <h1>
+          <?php if( is_category() ){
+            echo '<small>' . __('Рубрика ', 'sensive') . '</small> </br>' . get_queried_object()->name; 
+          }?>
+          <?php if( is_tag() ){
+            echo '<small>' . __('Записи с меткой ', 'sensive') . '</small> </br>' . get_queried_object()->name; 
+          }?>
+          <?php if( is_author() ){
+            echo '<small>' . __('Автор поста: ', 'sensive') . '</small> </br>' . get_the_author_meta('display_name'); 
+          }?>
+          <?php if( is_date() ){
+            echo '<small>' . __('Дата: ', 'sensive') . '</small> </br>' . get_the_date('j F Y'); 
+          }?>
+        </h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Archive Page</li>
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+
+            <?php if( is_category() ){
+              echo '<li class="breadcrumb-item active" aria-current="page">' . get_queried_object()->name; '</li>'; 
+            }?>
+            <?php if( is_tag() ){
+              echo '<li class="breadcrumb-item active" aria-current="page">' . get_queried_object()->name; '</li>';
+            }?>
+            <?php if( is_author() ){
+              echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_author_meta('display_name'); '</li>';
+            }?>
+            <?php if( is_date() ){
+              echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_date('j F Y'); '</li>';
+            }?>
+
           </ol>
         </nav>
       </div>
@@ -18,250 +44,83 @@
 </section>
 <!--================ Hero sm Banner end =================-->
 
-
-
 <!--================ Start Blog Post Area =================-->
 <section class="blog-post-area section-margin">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card1.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Fast cars and rickety bridges as
-                    he grand tour returns</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
+
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <div class="single-recent-blog-post">
+          <div class="thumb">
+
+            <?php 
+                if( has_post_thumbnail() ) { // Checking for a miniature
+                    the_post_thumbnail( 'post-thumbnail', array('class' => "img-fluid w-100",)); // Thumbnail output
+                }
+                else { // If no miniature
+                echo '<img class="img-fluid w-100 h-100" src="'.get_template_directory_uri().'/img/banner/blog.png">';
+                }
+                ?>
+
+            <ul class="thumb-info">
+              <li>
+
+                <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
+              </li>
+              <li><a href="<?php wp_get_archives(); ?>"><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></a></li>
+              <li><i class="ti-themify-favicon"></i>
+                <?php
+                    $sensive_comment_count = comments_number(); // возвратит число
+                    if ( comments_open() ) {
+                      if ( $sensive_comment_count == 0 ) {
+                        $comments = __('No Comments');
+                      } elseif ( $sensive_comment_count > 1 ) {
+                        $comments = $sensive_comment_count . __(' Comments');
+                      } else {
+                        $comments = __('1 Comment');
+                      }
+                      $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+                    } else {
+                      $write_comments =  __('Comments are off for this post.');
+                    }
+                  ?>
+              </li>
+            </ul>
           </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card2.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Harvey Weinstein's senual assault
-                    trial set for May</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card3.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Fast cars and rickety bridges as
-                    he grand tour returns</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card4.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Harvey Weinstein's senual assault
-                    trial set for May</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card5.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Fast cars and rickety bridges as
-                    he grand tour returns</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card6.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Harvey Weinstein's senual assault
-                    trial set for May</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card7.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Fast cars and rickety bridges as
-                    he grand tour returns</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="single-recent-blog-post card-view">
-              <div class="thumb">
-                <img class="card-img rounded-0" src="img/blog/thumb/thumb-card8.png" alt="">
-                <ul class="thumb-info">
-                  <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <a href="blog-single.html">
-                  <h3>Harvey Weinstein's senual assault
-                    trial set for May</h3>
-                </a>
-                <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
+          <div class="details mt-20">
+            <a href="<?php echo get_the_permalink(); ?>">
+              <h3><?php the_title(); ?></h3>
+            </a>
+            <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
+            <p><?php the_excerpt(); ?></p>
+            <a class="button" href="<?php echo get_the_permalink(); ?>">Читать статью<i class="ti-arrow-right"></i></a>
           </div>
         </div>
 
-        <!-- <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog2.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Woman claims husband wants to name baby girl
-                  after his ex-lover sparking.</h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog3.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                  ination reputation all time. </h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog4.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                  ination reputation all time.  </h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div> -->
-
-
+        <?php endwhile; else: ?>
+        Записей нет.
+        <?php endif; ?>
 
         <div class="row">
           <div class="col-lg-12">
             <nav class="blog-pagination justify-content-center d-flex">
               <ul class="pagination">
-                <li class="page-item">
-                  <a href="#" class="page-link" aria-label="Previous">
-                    <span aria-hidden="true">
-                      <i class="ti-angle-left"></i>
-                    </span>
-                  </a>
-                </li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item">
-                  <a href="#" class="page-link" aria-label="Next">
-                    <span aria-hidden="true">
-                      <i class="ti-angle-right"></i>
-                    </span>
-                  </a>
-                </li>
+                <?php the_posts_pagination( array(
+                'end_size'           => 0,
+                'mid_size'           => 0,
+                'prev_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button></li>',
+                'next_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button></li>',
+                
+              )); ?>
+
+                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button> -->
+                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button> -->
+
+                <!-- <li class="page-item active"><a href="#" class="page-link">1</a></li> -->
+                <!-- <li class="page-item"><a href="#" class="page-link">2</a></li> -->
+
               </ul>
             </nav>
           </div>
@@ -269,27 +128,9 @@
       </div>
 
       <!-- Start Blog Post Siddebar -->
-      <div class="col-lg-4 sidebar-widgets">
+      <aside class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
-          <div class="single-sidebar-widget newsletter-widget">
-            <form action="#">
-              <div class="d-flex flex-row">
-                <input class="form-control" name="q" placeholder="Search" required="" type="text" value="">
-                <button class="click-btn btn btn-default bbtns"><i class="ti-search"></i></button>
-              </div>
-            </form>
-          </div>
-
-          <!-- <div class="single-sidebar-widget newsletter-widget">
-                <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                <div class="form-group mt-30">
-                  <div class="col-autos">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                      onblur="this.placeholder = 'Enter email'">
-                  </div>
-                </div>
-                <button class="bbtns d-block mt-20 w-100">Subcribe</button>
-              </div> -->
+          <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
 
           <div class="single-sidebar-widget post-category-widget">
             <h4 class="single-sidebar-widget__title">Category</h4>
@@ -326,7 +167,6 @@
               </li>
             </ul>
           </div>
-
           <div class="single-sidebar-widget popular-post-widget">
             <h4 class="single-sidebar-widget__title">Popular Post</h4>
             <div class="popular-post-list">
@@ -376,7 +216,6 @@
               </div>
             </div>
           </div>
-
           <div class="single-sidebar-widget tag_cloud_widget">
             <h4 class="single-sidebar-widget__title">Tags</h4>
             <ul class="list">
@@ -407,9 +246,10 @@
             </ul>
           </div>
         </div>
-      </div>
+      </aside>
+      <!-- End Blog Post Siddebar -->
+
     </div>
-    <!-- End Blog Post Siddebar -->
   </div>
 </section>
 <!--================ End Blog Post Area =================-->

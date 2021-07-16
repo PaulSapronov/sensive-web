@@ -685,5 +685,5 @@ function my_navigation_template( $template, $class ){
 
 // выводим пагинацию
 the_posts_pagination( array(
-	'end_size' => 2,
+	'end_size' => 1,
 ) ); 

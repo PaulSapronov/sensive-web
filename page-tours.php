@@ -48,27 +48,10 @@
                 }
                 ?>
 
-            <ul class="thumb-info">
+            <ul class="thumb-info thumb-info-tours">
               <li><a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a></li>
               <li><a href="#"><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></a></li>
-              <li><a href="#"><i class="ti-themify-favicon"></i>
-                  <?php
-                  $sensive_comment_count = comments_number(); // возвратит число
-                  if ( comments_open() ) {
-                    if ( $sensive_comment_count == 0 ) {
-                      $comments = __('No Comments');
-                    } elseif ( $sensive_comment_count > 1 ) {
-                      $comments = $sensive_comment_count . __(' Comments');
-                    } else {
-                      $comments = __('1 Comment');
-                    }
-                    $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
-                    } else {
-                    $write_comments =  __('Comments are off for this post.');
-                    }
-                ?>
-                </a>
-              </li>
+
             </ul>
           </div>
           <div class="details mt-20">

@@ -63,6 +63,7 @@ function sensive_menus() {
 	$locations = array(
 		'header'  => __( 'Header Menu', 'sensive' ),
 		'footer'  => __( 'Footer Menu', 'sensive' ),
+		'social'  => __( 'Social Menu', 'sensive' ),
 	);
 	// Registering the menu areas that are in the '$locations' variable
 	register_nav_menus( $locations );

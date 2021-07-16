@@ -845,6 +845,7 @@ a {
 .single-recent-blog-post .thumb {
   position: relative;
 }
+
 .single-recent-blog-post .thumb-info {
   position: absolute;
   bottom: 0;
@@ -854,6 +855,16 @@ a {
   max-width: 415px;
   padding-left: 5px;
 }
+.single-recent-blog-post .thumb-info-tours {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  max-width: 240px;
+  padding-left: 5px;
+}
+
 @media (min-width: 430px) {
   .single-recent-blog-post .thumb-info {
     padding-left: 20px;

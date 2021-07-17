@@ -2236,3 +2236,6 @@ a {
 .byuser {
   list-style-type: none;
 }
+.address {
+  margin-bottom: 0;
+}

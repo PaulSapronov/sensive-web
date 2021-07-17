@@ -21,7 +21,7 @@
         </h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item">Главная</li>
 
             <?php if( is_category() ){
               echo '<li class="breadcrumb-item active" aria-current="page">' . get_queried_object()->name; '</li>'; 
@@ -69,7 +69,7 @@
 
                 <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
               </li>
-              <li><a href="<?php wp_get_archives(); ?>"><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></a></li>
+              <li><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></li>
               <li><i class="ti-themify-favicon"></i>
                 <?php
                     $sensive_comment_count = comments_number(); // возвратит число

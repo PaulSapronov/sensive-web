@@ -8,8 +8,8 @@
         <h1><?php the_title(); ?></h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Туры</li>
+            <li class="breadcrumb-item">Главная</li>
+            <li class="breadcrumb-item">Туры</li>
           </ol>
         </nav>
       </div>
@@ -50,7 +50,7 @@
 
             <ul class="thumb-info thumb-info-tours">
               <li><a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a></li>
-              <li><a href="#"><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></a></li>
+              <li><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></li>
 
             </ul>
           </div>
@@ -58,7 +58,7 @@
             <a href="<?php echo get_the_permalink(); ?>">
               <h3><?php the_title(); ?></h3>
             </a>
-            <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
+            <?php the_tags('', '')?>
             <p><?php the_excerpt(); ?></p>
             <a class="button" href="<?php echo get_the_permalink(); ?>">Читать статью<i class="ti-arrow-right"></i></a>
           </div>

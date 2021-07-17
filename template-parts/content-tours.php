@@ -10,7 +10,6 @@
   <h4><?php the_title(); ?></h4>
   <div class="user_details">
     <div class="float-left">
-      <?php the_tags(); ?>
     </div>
     <div class="float-right mt-sm-0 mt-3">
       <div class="media">

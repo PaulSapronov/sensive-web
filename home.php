@@ -41,7 +41,7 @@
               <li>
                 <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
               </li>
-              <li><a href="#"><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></a></li>
+              <li><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></li>
               <li><i class="ti-themify-favicon"></i>
                 <?php
                     $sensive_comment_count = comments_number(); // возвратит число

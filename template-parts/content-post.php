@@ -30,7 +30,6 @@
   <?php the_content(); ?>
 
   <div class="news_d_footer flex-column flex-sm-row">
-    <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>Lily and 4 people like this</a>
     <span class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#">
       <span class="align-middle mr-2">
         <i class="ti-themify-favicon"></i>

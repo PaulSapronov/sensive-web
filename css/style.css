@@ -103,7 +103,7 @@ a {
 }
 @media (min-width: 991px) {
   .header_area .navbar-social {
-    min-width: 95px;
+    min-width: 178px;
     float: right;
   }
 }

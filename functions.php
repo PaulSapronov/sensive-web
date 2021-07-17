@@ -638,9 +638,9 @@ register_sidebar( array(
 	'after_title'   => '</h6>'
 ) );
 register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "галлерея"', 'sensive' ),
-	'id'            => 'sidebar-footer-galery',
-	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
+	'name'          => esc_html__( 'Сайдбар "Social-header"', 'sensive' ),
+	'id'            => 'sidebar-social-header',
+	'before_widget' => '<div id="%1$s" class="single-header-widget %2$s">',
 	'after_widget'  => '</div>',
 	'before_title'  => '<h6 class="footr-area">',
 	'after_title'   => '</h6>'

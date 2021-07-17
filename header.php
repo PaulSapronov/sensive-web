@@ -48,10 +48,11 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right navbar-social">
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <?php dynamic_sidebar( 'sidebar-social-header' )?>
+              <!-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
               <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-              <li><a href="#"><i class="fab fa-behance"></i></a></li>
+              <li><a href="#"><i class="fab fa-behance"></i></a></li> -->
             </ul>
           </div>
         </div>

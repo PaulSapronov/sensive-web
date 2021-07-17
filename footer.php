@@ -63,7 +63,7 @@
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
       <p class="footer-text m-0">
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<?php echo date('Y');?> <?php echo the_field('copyright'); ?> <i class="fa fa-heart" aria-hidden="true"></i> командой <a href="https://sensive-web.pavelsapronov.ru" target="_blank"><?php echo get_bloginfo('name'); ?></a>
+        Copyright &copy;<?php echo date('Y');?> <?php echo the_field('copyright', $post->ID ); ?> <i class="fa fa-heart" aria-hidden="true"></i> командой <a href="https://sensive-web.pavelsapronov.ru" target="_blank"><?php echo get_bloginfo('name'); ?></a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>

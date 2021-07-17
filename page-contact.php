@@ -41,14 +41,14 @@
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-headphone"></i></span>
           <div class="media-body">
-            <h3><?php the_field('phone', $post->ID); ?></h3>
+            <h3><a href="tel:+74409865999"><?php the_field('phone', $post->ID); ?></a></h3>
             <p><?php the_field('subphone', $post->ID); ?></p>
           </div>
         </div>
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-email"></i></span>
           <div class="media-body">
-            <h3><?php the_field('email', $post->ID); ?></h3>
+            <h3><a href="mailto:"><?php the_field('email', $post->ID); ?></a></h3>
             <p><?php the_field('subemail', $post->ID); ?></p>
           </div>
         </div>

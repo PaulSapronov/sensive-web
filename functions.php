@@ -634,7 +634,7 @@ register_sidebar( array(
 	'id'            => 'sidebar-footer',
 	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h6 class="footr-area">',
+	'before_title'  => '<h6 class="footer-area">',
 	'after_title'   => '</h6>'
 ) );
 register_sidebar( array(
@@ -642,8 +642,24 @@ register_sidebar( array(
 	'id'            => 'sidebar-social-header',
 	'before_widget' => '<div id="%1$s" class="single-header-widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h6 class="footr-area">',
+	'before_title'  => '<h6 class="header-area">',
 	'after_title'   => '</h6>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар "Social-footer"', 'sensive' ),
+	'id'            => 'sidebar-social-footer',
+	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h6 class="footer-area">',
+	'after_title'   => '</h6>'
+) );
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар "Copyright"', 'sensive' ),
+	'id'            => 'sidebar-copyright',
+	'before_widget' => '<span>',
+	'after_widget'  => '</span>',
+	'before_title'  => '',
+	'after_title'   => ''
 ) );
 }
 

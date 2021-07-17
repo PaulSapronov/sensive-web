@@ -40,7 +40,8 @@
         </div>
       </div>
       <div class="col-lg-2 col-md-6 col-sm-6">
-        <div class="single-footer-widget">
+        <?php dynamic_sidebar('sidebar-social-footer'); ?>
+        <!-- <div class="single-footer-widget">
           <h6>Follow Us</h6>
           <p>Let us be social</p>
           <div class="footer-social d-flex align-items-center">
@@ -57,13 +58,14 @@
               <i class="fab fa-behance"></i>
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+
       <p class="footer-text m-0">
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<?php echo date('Y');?> <?php echo the_field('copyright', $post->ID ); ?> <i class="fa fa-heart" aria-hidden="true"></i> командой <a href="https://sensive-web.pavelsapronov.ru" target="_blank"><?php echo get_bloginfo('name'); ?></a>
+        Copyright &copy;<?php echo date('Y');?> <?php echo the_field('copyright', 8 ); ?> <i class="fa fa-heart" aria-hidden="true"></i> командой <a href="https://sensive-web.pavelsapronov.ru" target="_blank"><?php echo get_bloginfo('name'); ?></a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
     </div>

@@ -103,7 +103,7 @@ a {
 }
 @media (min-width: 991px) {
   .header_area .navbar-social {
-    min-width: 178px;
+    min-width: 95px;
     float: right;
   }
 }
@@ -2238,4 +2238,14 @@ a {
 }
 .address {
   margin-bottom: 0;
+}
+.zoom-social-icons-list--no-labels .zoom-social_icons-list__item {
+  margin: 0px !important;
+}
+.zoom-social-icons-list .socicon,
+.zoom-social-icons-list .dashicons,
+.zoom-social-icons-list .genericon,
+.zoom-social-icons-list .academicons,
+.zoom-social-icons-list .fa {
+  padding: 0px 8px 0px 0px !important;
 }

@@ -7,9 +7,7 @@
     echo '<img class="img-fluid w-100 h-100" src="'.get_template_directory_uri().'/img/banner/blog.png">';
     }
   ?>
-  <a href="#">
-    <h4><?php the_title(); ?></h4>
-  </a>
+  <h4><?php the_title(); ?></h4>
   <div class="user_details">
     <div class="float-left">
       <?php the_tags(); ?>
@@ -30,7 +28,6 @@
   <?php the_content(); ?>
 
   <div class="news_d_footer flex-column flex-sm-row">
-    <a href="#"><span class="align-middle mr-2"><i class="ti-heart"></i></span>Lily and 4 people like this</a>
 
     <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
       <a href="#"><i class="fab fa-facebook-f"></i></a>

@@ -8,9 +8,9 @@
         <h1>Записи</h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Главная</a></li>
-            <li class="breadcrumb-item"><a href="blog.html">Блог</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Записи</li>
+            <li class="breadcrumb-item">Главная</li>
+            <li class="breadcrumb-item">Блог</li>
+            <li class="breadcrumb-item">Записи</li>
           </ol>
         </nav>
       </div>

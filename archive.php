@@ -93,7 +93,7 @@
             <a href="<?php echo get_the_permalink(); ?>">
               <h3><?php the_title(); ?></h3>
             </a>
-            <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
+            <p class="tag-list-inline"><?php the_tags(); ?></p>
             <p><?php the_excerpt(); ?></p>
             <a class="button" href="<?php echo get_the_permalink(); ?>">Читать статью<i class="ti-arrow-right"></i></a>
           </div>

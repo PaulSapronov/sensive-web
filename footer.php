@@ -5,28 +5,28 @@
       <div class="col-lg-3  col-md-6 col-sm-6">
         <?php if ( ! dynamic_sidebar('sidebar-footer') ) : dynamic_sidebar('sidebar-footer'); endif; ?>
       </div>
+
       <div class="col-lg-4  col-md-6 col-sm-6">
         <div class="single-footer-widget">
-          <h6>Newsletter</h6>
-          <p>Stay update with our latest</p>
+          <h6>Подписаться</h6>
+          <p>Будьте в курсе наших последних новостей</p>
           <div class="" id="mc_embed_signup">
-
-            <form target="_blank" novalidate="true" action="" method="get" class="form-inline">
+            <form class="form-inline" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
               <div class="d-flex flex-row">
-                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                <input type="text" name="email" placeholder="Email" /><br />
+                <button class="click-btn btn btn-default" type="submit" value="Подписяться"><span class="lnr lnr-arrow-right"></button>
+                <input type="hidden" name="campaign_token" value="ocvPY" />
+                <input type="hidden" name="start_day" value="0" />
                 <div style="position: absolute; left: -5000px;">
                   <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
                 </div>
-                <!-- <div class="col-lg-4 col-md-4">
-                        <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                      </div>  -->
               </div>
               <div class="info"></div>
             </form>
           </div>
         </div>
       </div>
+
       <div class="col-lg-3  col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <ul class="instafeed d-flex flex-wrap">

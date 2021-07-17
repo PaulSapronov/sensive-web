@@ -12,8 +12,7 @@
   </a>
   <div class="user_details">
     <div class="float-left">
-      <a href="#">Lifestyle</a>
-      <a href="#">Gadget</a>
+      <?php the_tags(); ?>
     </div>
     <div class="float-right mt-sm-0 mt-3">
       <div class="media">

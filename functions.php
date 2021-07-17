@@ -616,7 +616,7 @@ register_sidebar( array(
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар страницы "Туры"', 'sensive' ),
 	'id'            => 'sidebar-tours',
-	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s"">',
+	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s">',
 	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
@@ -624,7 +624,7 @@ register_sidebar( array(
 register_sidebar( array(
 	'name'          => esc_html__( 'Сайдбар страницы "Блог"', 'sensive' ),
 	'id'            => 'sidebar-blog',
-	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s"">',
+	'before_widget' => '<div id="%1$s" class="single-sidebar-widget %2$s">',
 	'after_widget'  => '</div>',
 	'before_title'  => '<h4 class="single-sidebar-widget__title">',
 	'after_title'   => '</h4>'
@@ -653,14 +653,7 @@ register_sidebar( array(
 	'before_title'  => '<h6 class="footer-area">',
 	'after_title'   => '</h6>'
 ) );
-register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "Copyright"', 'sensive' ),
-	'id'            => 'sidebar-copyright',
-	'before_widget' => '<span>',
-	'after_widget'  => '</span>',
-	'before_title'  => '',
-	'after_title'   => ''
-) );
+
 }
 
 // Registering a new post type "Туры"

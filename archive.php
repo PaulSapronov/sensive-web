@@ -49,29 +49,27 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
+        <div class="row">
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+          <div class="col-md-6">
+            <div class="single-recent-blog-post card-view">
+              <div class="thumb">
 
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-        <div class="single-recent-blog-post">
-          <div class="thumb">
-
-            <?php 
+                <?php 
                 if( has_post_thumbnail() ) { // Checking for a miniature
-                    the_post_thumbnail( 'post-thumbnail', array('class' => "img-fluid w-100",)); // Thumbnail output
+                    the_post_thumbnail( 'thumbnail', array('class' => "img-fluid w-100 h-100",)); // Thumbnail output
                 }
                 else { // If no miniature
                 echo '<img class="img-fluid w-100 h-100" src="'.get_template_directory_uri().'/img/banner/blog.png">';
                 }
                 ?>
 
-            <ul class="thumb-info">
-              <li>
-
-                <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
-              </li>
-              <li><i class="ti-notepad"></i><?php the_time( 'F j, Y' ); ?></li>
-              <li><i class="ti-themify-favicon"></i>
-                <?php
+                <ul class="thumb-info">
+                  <li>
+                    <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
+                  </li>
+                  <li><i class="ti-themify-favicon"></i>
+                    <?php
                     $sensive_comment_count = comments_number(); // возвратит число
                     if ( comments_open() ) {
                       if ( $sensive_comment_count == 0 ) {
@@ -86,56 +84,31 @@
                       $write_comments =  __('Comments are off for this post.');
                     }
                   ?>
-              </li>
-            </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="details mt-20">
+                <a href="<?php echo get_the_permalink(); ?>">
+                  <h3><?php the_title(); ?></h3>
+                </a>
+                <p><?php the_excerpt(); ?></p>
+                <a class="button" href="<?php echo get_the_permalink(); ?>">Читать статью<i class="ti-arrow-right"></i></a>
+              </div>
+            </div>
           </div>
-          <div class="details mt-20">
-            <a href="<?php echo get_the_permalink(); ?>">
-              <h3><?php the_title(); ?></h3>
-            </a>
-            <p class="tag-list-inline"><?php the_tags(); ?></p>
-            <p><?php the_excerpt(); ?></p>
-            <a class="button" href="<?php echo get_the_permalink(); ?>">Читать статью<i class="ti-arrow-right"></i></a>
-          </div>
-        </div>
+          <?php endwhile; else: ?>
+          Записей нет.
+          <?php endif; ?>
 
-        <?php endwhile; else: ?>
-        Записей нет.
-        <?php endif; ?>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <nav class="blog-pagination justify-content-center d-flex">
-              <ul class="pagination">
-                <?php the_posts_pagination( array(
-                'end_size'           => 0,
-                'mid_size'           => 0,
-                'prev_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button></li>',
-                'next_text'          => '<li class="page-item"><button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button></li>',
-                
-              )); ?>
-
-                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-left"></i></span></button> -->
-                <!-- <button class="page-link"><span aria-hidden="true"><i class="ti-angle-right"></i></span></button> -->
-
-                <!-- <li class="page-item active"><a href="#" class="page-link">1</a></li> -->
-                <!-- <li class="page-item"><a href="#" class="page-link">2</a></li> -->
-
-              </ul>
-            </nav>
-          </div>
         </div>
       </div>
-
       <!-- Start Blog Post Siddebar -->
       <aside class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
           <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog'); endif; ?>
-
         </div>
       </aside>
       <!-- End Blog Post Siddebar -->
-
     </div>
   </div>
 </section>

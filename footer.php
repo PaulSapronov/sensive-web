@@ -10,20 +10,25 @@
         <div class="single-footer-widget">
           <h6>Подписаться</h6>
           <p>Будьте в курсе наших последних новостей</p>
-          <div class="" id="mc_embed_signup">
-            <form class="form-inline" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
-              <div class="d-flex flex-row">
-                <input type="text" name="email" placeholder="Email" /><br />
-                <button class="click-btn btn btn-default" type="submit" value="Подписяться"><span class="lnr lnr-arrow-right"></button>
-                <input type="hidden" name="campaign_token" value="ocvPY" />
-                <input type="hidden" name="start_day" value="0" />
-                <div style="position: absolute; left: -5000px;">
-                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                </div>
+          <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+            <div class="d-flex flex-row">
+              <!-- Поле Email (обязательно) -->
+              <input required class="form-control" type="text" name="email" placeholder="Введите email" />
+              <!-- Токен списка -->
+              <!-- Получить API ID на: https://app.getresponse.com/campaign_list.html -->
+              <input type="hidden" name="campaign_token" value="ocvPY" />
+              <!-- Страница благодарности (по желанию) -->
+              <input type="hidden" name="thankyou_url" value="<?php echo home_url( 'thankyou' ); ?>" />
+              <!-- Добавить подписчика в цикл на определенный день (по желанию) -->
+              <input type="hidden" name="start_day" value="0" />
+              <!-- Кнопка подписаться -->
+              <button class="click-btn btn btn-default" type="submit" value="Подписаться"><span class="lnr lnr-arrow-right"></button>
+              <div style="position: absolute; left: -5000px;">
+                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
               </div>
-              <div class="info"></div>
-            </form>
-          </div>
+            </div>
+            <div class="info"></div>
+          </form>
         </div>
       </div>
 

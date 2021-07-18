@@ -601,6 +601,14 @@ function delete_intermediate_image_sizes( $sizes ){
 		'2048x2048',
 	] );
 }
+// Change the length of the trimmed text
+add_filter( 'excerpt_length', function(){
+	return 20;
+} );
+// Removing the structure [...] at the end
+add_filter('excerpt_more', function($more) {
+	return '...';
+});
 
 // Реристрируем sidebar
 add_action( 'widgets_init', 'sensive_widgets_init' );
@@ -653,7 +661,14 @@ register_sidebar( array(
 	'before_title'  => '<h6 class="footer-area">',
 	'after_title'   => '</h6>'
 ) );
-
+register_sidebar( array(
+	'name'          => esc_html__( 'Сайдбар "Footer gallery"', 'sensive' ),
+	'id'            => 'sidebar-footer-gallery',
+	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h6 class="footer-area">',
+	'after_title'   => '</h6>'
+) );
 }
 
 // Registering a new post type "Туры"

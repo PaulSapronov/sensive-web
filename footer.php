@@ -35,30 +35,12 @@
       <div class="col-lg-3  col-md-6 col-sm-6">
         <div class="single-footer-widget mail-chimp">
           <ul class="instafeed d-flex flex-wrap">
-            <?php if ( ! dynamic_sidebar('sidebar-footer-galery') ) : dynamic_sidebar('sidebar-footer-galery'); endif; ?>
+            <?php if ( ! dynamic_sidebar('sidebar-footer-gallery') ) : dynamic_sidebar('sidebar-footer-galery'); endif; ?>
           </ul>
         </div>
       </div>
       <div class="col-lg-2 col-md-6 col-sm-6">
         <?php dynamic_sidebar('sidebar-social-footer'); ?>
-        <!-- <div class="single-footer-widget">
-          <h6>Follow Us</h6>
-          <p>Let us be social</p>
-          <div class="footer-social d-flex align-items-center">
-            <a href="#">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-dribbble"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-behance"></i>
-            </a>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">

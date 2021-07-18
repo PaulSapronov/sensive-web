@@ -50,10 +50,7 @@
 		?>
     </span>
     <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-dribbble"></i></a>
-      <a href="#"><i class="fab fa-behance"></i></a>
+      <?php dynamic_sidebar( 'sidebar-social-header' )?>
     </div>
   </div>
 </div>

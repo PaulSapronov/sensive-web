@@ -2081,15 +2081,21 @@ a {
 .copy-right-text a {
   color: #ff9907;
 }
-.instafeed {
+.gallery {
   margin: -5px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.instafeed li {
+.gallery .gallery-item {
   overflow: hidden;
   width: 25%;
+  margin: 0;
 }
-.instafeed li img {
-  margin: 5px;
+.gallery .gallery-item img {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0px 0px 5px 5px;
 }
 .footer-social i {
   color: #555555;

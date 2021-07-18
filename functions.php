@@ -638,7 +638,7 @@ register_sidebar( array(
 	'after_title'   => '</h4>'
 ) );
 register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "footer"', 'sensive' ),
+	'name'          => esc_html__( 'Сайдбар в подвале', 'sensive' ),
 	'id'            => 'sidebar-footer',
 	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
 	'after_widget'  => '</div>',
@@ -646,7 +646,7 @@ register_sidebar( array(
 	'after_title'   => '</h6>'
 ) );
 register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "Social-header"', 'sensive' ),
+	'name'          => esc_html__( 'Виджет иконок соцсетей в шапке сайта', 'sensive' ),
 	'id'            => 'sidebar-social-header',
 	'before_widget' => '<div id="%1$s" class="single-header-widget %2$s">',
 	'after_widget'  => '</div>',
@@ -654,7 +654,7 @@ register_sidebar( array(
 	'after_title'   => '</h6>'
 ) );
 register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "Social-footer"', 'sensive' ),
+	'name'          => esc_html__( 'Виджет иконок соцсетей в подвале сайта', 'sensive' ),
 	'id'            => 'sidebar-social-footer',
 	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
 	'after_widget'  => '</div>',
@@ -662,7 +662,7 @@ register_sidebar( array(
 	'after_title'   => '</h6>'
 ) );
 register_sidebar( array(
-	'name'          => esc_html__( 'Сайдбар "Footer gallery"', 'sensive' ),
+	'name'          => esc_html__( 'Виджет "Галерея"  в подвале сайта', 'sensive' ),
 	'id'            => 'sidebar-footer-gallery',
 	'before_widget' => '<div id="%1$s" class="single-footer-widget %2$s">',
 	'after_widget'  => '</div>',
@@ -710,8 +710,8 @@ add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
 function my_navigation_template( $template, $class ){
 
 	return '
-	<nav class="navigation %1$s" role="navigation">
-		<div class="nav-links">%3$s</div>
+	<nav class="blog-pagination justify-content-center d-flex" role="navigation">
+		<ul class="pagination">%3$s</ul>
 	</nav>    
 	';
 }

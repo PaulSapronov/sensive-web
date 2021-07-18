@@ -101,6 +101,21 @@
           <?php endif; ?>
 
         </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <?php the_posts_pagination(
+                  $args = array(
+                    'end_size'     => 1,     // количество страниц на концах
+                    'mid_size'     => 1,     // количество страниц вокруг текущей
+                    'prev_text'    => __('<i class="ti-angle-left"></i>'),
+                    'next_text'    => __('<i class="ti-angle-right"></i>'),
+                    'before_page_number' => '',
+                    'after_page_number'  => '',
+                    'screen_reader_text' => __( 'Posts navigation' ),
+                  )
+                ); ?>
+          </div>
+        </div>
       </div>
       <!-- Start Blog Post Siddebar -->
       <aside class="col-lg-4 sidebar-widgets">

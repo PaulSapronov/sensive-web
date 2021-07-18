@@ -36,7 +36,7 @@
                 }
                 ?>
 
-                <ul class="thumb-info">
+                <ul class="thumb-info arch">
                   <li>
                     <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>"><i class="ti-user"></i><?php the_author(); ?></a>
                   </li>

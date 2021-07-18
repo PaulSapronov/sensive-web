@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<!--================ Hero sm Banner start =================-->
 <section class="mb-30px">
   <div class="container">
     <div class="hero-banner hero-banner--sm">
@@ -9,7 +8,6 @@
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">Главная</li>
-            <li class="breadcrumb-item">Блог</li>
             <li class="breadcrumb-item">Записи</li>
           </ol>
         </nav>
@@ -17,7 +15,6 @@
     </div>
   </div>
 </section>
-<!--================ Hero sm Banner end =================-->
 
 <!--================ Start Blog Post Area =================-->
 <section class="blog-post-area section-margin">
@@ -49,7 +46,7 @@
         ?>
 
       </main>
-
+            
       <!-- Start Blog Post Siddebar -->
       <aside class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
@@ -62,38 +59,3 @@
 <!--================ End Blog Post Area =================-->
 
 <?php get_footer(); ?>
-
-<!-- Start Post Navigation -->
-<!-- <div class="navigation-area">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-              <div class="thumb">
-                <a href="#"><img class="img-fluid" src="img/blog/prev.jpg" alt=""></a>
-              </div>
-              <div class="arrow">
-                <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
-              </div>
-              <div class="detials">
-                <p>Prev Post</p>
-                <a href="#">
-                  <h4>A Discount Toner</h4>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-              <div class="detials">
-                <p>Next Post</p>
-                <a href="#">
-                  <h4>Cartridge Is Better</h4>
-                </a>
-              </div>
-              <div class="arrow">
-                <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
-              </div>
-              <div class="thumb">
-                <a href="#"><img class="img-fluid" src="img/blog/next.jpg" alt=""></a>
-              </div>
-            </div>
-          </div>
-        </div> -->
-<!-- End Post Navigation -->
